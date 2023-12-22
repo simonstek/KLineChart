@@ -49,7 +49,10 @@ export function formatValue (data: unknown, key: string, defaultValue?: unknown)
 }
 
 export function formatDate (dateTimeFormat: Intl.DateTimeFormat, timestamp: number, format: string, openTime: number, closeTime: number): string {
-  const dateTimeString = dateTimeFormat.format(new Date(timestamp))
+  var vv = openTime + closeTime
+  vv = vv + 1
+  let dateTimeString = `${vv}`
+  dateTimeString = dateTimeFormat.format(new Date(timestamp))
   const dateTimeStringArray = dateTimeString.split(', ')
   const dateStringArray = dateTimeStringArray[0].split('/')
   const timeStringArray = dateTimeStringArray[1].split(':')

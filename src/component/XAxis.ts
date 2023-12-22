@@ -72,21 +72,21 @@ export default class XAxisImp extends AxisImp {
       }
       const optimalTickLength = optimalTicks.length
       if (optimalTickLength === 1) {
-        optimalTicks[0].text = formatDate(dateTimeFormat, optimalTicks[0].value as number, 'YYYY-MM-DD HH:mm', FormatDateType.XAxis, optimalTicks[0].open_time, optimalTicks[0].close_time)
+        optimalTicks[0].text = formatDate(dateTimeFormat, optimalTicks[0].value as number, 'YYYY-MM-DD HH:mm', FormatDateType.XAxis, optimalTicks[0].open_time as number, optimalTicks[0].close_time as number)
       } else {
         const firstTimestamp = optimalTicks[0].value as number
         const secondTimestamp = optimalTicks[1].value as number
         if (isValid(optimalTicks[2])) {
           const thirdText = optimalTicks[2].text
           if (/^[0-9]{2}-[0-9]{2}$/.test(thirdText)) {
-            optimalTicks[0].text = formatDate(dateTimeFormat, firstTimestamp, 'MM-DD', FormatDateType.XAxis, optimalTicks[0].open_time, optimalTicks[0].close_time)
+            optimalTicks[0].text = formatDate(dateTimeFormat, firstTimestamp, 'MM-DD', FormatDateType.XAxis, optimalTicks[0].open_time as number, optimalTicks[0].close_time as number)
           } else if (/^[0-9]{4}-[0-9]{2}$/.test(thirdText)) {
-            optimalTicks[0].text = formatDate(dateTimeFormat, firstTimestamp, 'YYYY-MM', FormatDateType.XAxis, optimalTicks[0].open_time, optimalTicks[0].close_time)
+            optimalTicks[0].text = formatDate(dateTimeFormat, firstTimestamp, 'YYYY-MM', FormatDateType.XAxis, optimalTicks[0].open_time as number, optimalTicks[0].close_time as number)
           } else if (/^[0-9]{4}$/.test(thirdText)) {
-            optimalTicks[0].text = formatDate(dateTimeFormat, firstTimestamp, 'YYYY', FormatDateType.XAxis, optimalTicks[0].open_time, optimalTicks[0].close_time)
+            optimalTicks[0].text = formatDate(dateTimeFormat, firstTimestamp, 'YYYY', FormatDateType.XAxis, optimalTicks[0].open_time as number, optimalTicks[0].close_time as number)
           }
         } else {
-          optimalTicks[0].text = this._optimalTickLabel(formatDate, dateTimeFormat, firstTimestamp, secondTimestamp, optimalTicks[1].open_time, optimalTicks[1].close_time) ?? optimalTicks[0].text
+          optimalTicks[0].text = this._optimalTickLabel(formatDate, dateTimeFormat, firstTimestamp, secondTimestamp, optimalTicks[1].open_time as number, optimalTicks[1].close_time as number) ?? optimalTicks[0].text
         }
       }
     }
