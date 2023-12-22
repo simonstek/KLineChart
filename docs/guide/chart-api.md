@@ -14,7 +14,7 @@
     styles?: string | object
     timezone?: string
     customApi?: {
-      formatDate?: (dateTimeFormat: Intl.DateTimeFormat, timestamp: number, format: string, type: number) => string
+      formatDate?: (dateTimeFormat: Intl.DateTimeFormat, timestamp: number, format: string, type: number, open_time: number, close_time: number) => string
       formatBigNumber?: (value: string | number) => string
     }
     thousandsSeparator?: string
@@ -403,9 +403,9 @@
 ```
 格式化大的数字，如1000转换成1k，1000000转换为1M等。
 
-### utils.formatDate(dateTimeFormat, timestamp, format)
+### utils.formatDate(dateTimeFormat, timestamp, format, open_time, close_time)
 ```typescript
-(dateTimeFormat: Intl.DateTimeFormat, timestamp: number, format: string) => string
+(dateTimeFormat: Intl.DateTimeFormat, timestamp: number, format: string, open_time: number, close_time: number) => string
 ```
 格式化日期。`format`格式，如'YYYY-MM-DD HH:mm:ss'。
 

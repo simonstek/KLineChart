@@ -285,7 +285,7 @@ export default class YAxisImp extends AxisImp implements YAxis {
         y > textHeight &&
         y < height - textHeight &&
         ((validYNumber && (Math.abs(validY - y) > textHeight * 2)) || !validYNumber)) {
-        optimalTicks.push({ text: v, coord: y, value })
+        optimalTicks.push({ text: v, coord: y, value, open_time: value, close_time: value })
         validY = y
       }
     })

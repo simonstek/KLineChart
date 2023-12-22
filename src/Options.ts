@@ -25,7 +25,7 @@ export enum FormatDateType {
   XAxis
 }
 
-export type FormatDate = (dateTimeFormat: Intl.DateTimeFormat, timestamp: number, format: string, type: FormatDateType) => string
+export type FormatDate = (dateTimeFormat: Intl.DateTimeFormat, timestamp: number, format: string, type: FormatDateType, open_time: number, close_time: number) => string
 
 export type FormatBigNumber = (value: string | number) => string
 

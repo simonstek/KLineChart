@@ -429,7 +429,7 @@ export default class CandleTooltipView extends IndicatorTooltipView {
     const changeValue = current.close - prevClose
     const { price: pricePrecision, volume: volumePrecision } = precision
     const mapping = {
-      '{time}': customApi.formatDate(dateTimeFormat, current.timestamp, 'YYYY-MM-DD HH:mm', FormatDateType.Tooltip),
+      '{time}': customApi.formatDate(dateTimeFormat, current.timestamp, 'YYYY-MM-DD HH:mm', FormatDateType.Tooltip, current.open_time, current.close_time),
       '{open}': formatThousands(formatPrecision(current.open, pricePrecision), thousandsSeparator),
       '{high}': formatThousands(formatPrecision(current.high, pricePrecision), thousandsSeparator),
       '{low}': formatThousands(formatPrecision(current.low, pricePrecision), thousandsSeparator),

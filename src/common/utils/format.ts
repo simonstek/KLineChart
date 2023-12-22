@@ -48,7 +48,7 @@ export function formatValue (data: unknown, key: string, defaultValue?: unknown)
   return defaultValue ?? '--'
 }
 
-export function formatDate (dateTimeFormat: Intl.DateTimeFormat, timestamp: number, format: string): string {
+export function formatDate (dateTimeFormat: Intl.DateTimeFormat, timestamp: number, format: string, openTime: number, closeTime: number): string {
   const dateTimeString = dateTimeFormat.format(new Date(timestamp))
   const dateTimeStringArray = dateTimeString.split(', ')
   const dateStringArray = dateTimeStringArray[0].split('/')

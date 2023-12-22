@@ -20,6 +20,8 @@ export interface AxisTick {
   coord: number
   value: number | string
   text: string
+  open_time: number | string
+  close_time: number | string
 }
 
 export interface AxisExtremum {
@@ -98,7 +100,7 @@ export default abstract class AxisImp {
       if (interval !== 0) {
         while (f <= last) {
           const v = f.toFixed(precision)
-          ticks[n] = { text: v, coord: 0, value: v }
+          ticks[n] = { text: v, coord: 0, value: v, open_time: 0, close_time: 0 }
           ++n
           f += interval
         }

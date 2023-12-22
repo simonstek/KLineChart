@@ -32,8 +32,8 @@ limitations under the License.
       window.onload = function () {
         var chart = klinecharts.init('chart')
         chart.setCustomApi({
-          formatDate: function (dateTimeFormat, timestamp, format, type) {
-            return klinecharts.utils.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD HH:mm:ss')
+          formatDate: function (dateTimeFormat, timestamp, format, type, open_time, close_time) {
+            return klinecharts.utils.formatDate(dateTimeFormat, timestamp, 'YYYY-MM-DD HH:mm:ss', open_time, close_time)
           },
           formatBigNumber: function (value) {
             const v = +value

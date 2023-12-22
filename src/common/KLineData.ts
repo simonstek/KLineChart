@@ -14,6 +14,8 @@
 
 export default interface KLineData {
   timestamp: number
+  open_time: number
+  close_time: number
   open: number
   high: number
   low: number
