@@ -309,6 +309,7 @@ export interface YAxisStyle extends AxisStyle {
   position: YAxisPosition
   inside: boolean
   reverse: boolean
+  forceAutoCalcTick: boolean
 }
 
 export interface CrosshairDirectionStyle {

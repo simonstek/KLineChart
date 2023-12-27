@@ -333,7 +333,7 @@ export default class Event implements EventHandler {
   }
 
   mouseUpEvent (e: MouseTouchEvent): boolean {
-    const { widget } = this._findWidgetByEvent(e)
+    const { pane, widget } = this._findWidgetByEvent(e)
     let consumed: boolean = false
     if (widget !== null) {
       const event = this._makeWidgetEvent(e, widget)
@@ -344,6 +344,12 @@ export default class Event implements EventHandler {
         case WidgetNameConstants.X_AXIS:
         case WidgetNameConstants.Y_AXIS: {
           consumed = widget.dispatchEvent('mouseUpEvent', event)
+
+          const forced = this._chart.getChartStore().getStyles().yAxis.forceAutoCalcTick
+          if (forced) {
+            const yAxis = (pane as DrawPane<YAxis>).getAxisComponent()
+            yAxis.setAutoCalcTickFlag(true)
+          }
           break
         }
       }
