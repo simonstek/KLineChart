@@ -111,10 +111,10 @@ export default class CandleBarView extends ChildrenView {
       rects.push({
         name: 'rect',
         attrs: {
-          x: x - 0.5,
-          y: priceY[0],
-          width: 1,
-          height: priceY[1] - priceY[0]
+          x: Math.floor(x - 0.5),
+          y: Math.floor(priceY[0]),
+          width: Math.floor(1),
+          height: Math.floor(priceY[1] - priceY[0])
         },
         styles: { color: wickColor }
       })
@@ -126,10 +126,10 @@ export default class CandleBarView extends ChildrenView {
         rects.push({
           name: 'rect',
           attrs: {
-            x: x - halfGapBar + 0.5,
-            y: priceY[1],
-            width: gapBar - 1,
-            height: barHeight
+            x: Math.floor(x - halfGapBar + 0.5),
+            y: Math.floor(priceY[1]),
+            width: Math.floor(gapBar - 1),
+            height: Math.floor(barHeight)
           },
           styles: {
             style: PolygonType.Stroke,
@@ -140,10 +140,10 @@ export default class CandleBarView extends ChildrenView {
         rects.push({
           name: 'rect',
           attrs: {
-            x: x - halfGapBar + 0.5,
-            y: priceY[1],
-            width: gapBar - 1,
-            height: barHeight
+            x: Math.floor(x - halfGapBar + 0.5),
+            y: Math.floor(priceY[1]),
+            width: Math.floor(gapBar - 1),
+            height: Math.floor(barHeight)
           },
           styles: {
             style: PolygonType.StrokeFill,
@@ -155,10 +155,10 @@ export default class CandleBarView extends ChildrenView {
       rects.push({
         name: 'rect',
         attrs: {
-          x: x - 0.5,
-          y: priceY[2],
-          width: 1,
-          height: priceY[3] - priceY[2]
+          x: Math.floor(x - 0.5),
+          y: Math.floor(priceY[2]),
+          width: Math.floor(1),
+          height: Math.floor(priceY[3] - priceY[2])
         },
         styles: { color: wickColor }
       })
@@ -168,28 +168,28 @@ export default class CandleBarView extends ChildrenView {
         {
           name: 'rect',
           attrs: {
-            x: x - size / 2,
-            y: priceY[0],
-            width: size,
-            height: priceY[3] - priceY[0]
+            x: Math.floor(x - size / 2),
+            y: Math.floor(priceY[0]),
+            width: Math.floor(size),
+            height: Math.floor(priceY[3] - priceY[0])
           },
           styles: { color }
         }, {
           name: 'rect',
           attrs: {
-            x: x - halfGapBar,
-            y: openY + size > priceY[3] ? priceY[3] - size : openY,
-            width: halfGapBar - size / 2,
-            height: size
+            x: Math.floor(x - halfGapBar),
+            y: Math.floor(openY + size > priceY[3] ? priceY[3] - size : openY),
+            width: Math.floor(halfGapBar - size / 2),
+            height: Math.floor(size)
           },
           styles: { color }
         }, {
           name: 'rect',
           attrs: {
-            x: x + size / 2,
-            y: closeY + size > priceY[3] ? priceY[3] - size : closeY,
-            width: halfGapBar - size / 2,
-            height: size
+            x: Math.floor(x + size / 2),
+            y: Math.floor(closeY + size > priceY[3] ? priceY[3] - size : closeY),
+            width: Math.floor(halfGapBar - size / 2),
+            height: Math.floor(size)
           },
           styles: { color }
         }
