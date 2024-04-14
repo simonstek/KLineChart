@@ -129,7 +129,7 @@ export default class IndicatorView extends CandleBarView {
                 if (!isValid<IndicatorFigureAttrs>(attrs)) {
                   switch (figure.type) {
                     case 'circle': {
-                      attrs = { x, y: valueY, r: halfGapBar }
+                      attrs = { x: Math.floor(x), y: Math.floor(valueY), r: Math.floor(halfGapBar) }
                       break
                     }
                     case 'rect':
@@ -147,10 +147,10 @@ export default class IndicatorView extends CandleBarView {
                         y = valueY
                       }
                       attrs = {
-                        x: x - halfGapBar,
-                        y,
-                        width: gapBar,
-                        height
+                        x: Math.floor(x - halfGapBar),
+                        y: Math.floor(y),
+                        width: Math.floor(gapBar),
+                        height: Math.floor(height)
                       }
                       break
                     }
@@ -158,8 +158,8 @@ export default class IndicatorView extends CandleBarView {
                       if (isNumber(currentCoordinate[figure.key]) && isNumber(nextCoordinate[figure.key])) {
                         attrs = {
                           coordinates: [
-                            { x: currentCoordinate.x, y: currentCoordinate[figure.key] },
-                            { x: nextCoordinate.x, y: nextCoordinate[figure.key] }
+                            { x: Math.floor(currentCoordinate.x), y: Math.floor(currentCoordinate[figure.key]) },
+                            { x: Math.floor(nextCoordinate.x), y: Math.floor(nextCoordinate[figure.key]) }
                           ]
                         }
                       }
